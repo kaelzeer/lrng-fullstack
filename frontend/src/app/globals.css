@@ -77,3 +77,40 @@ body {
 .footer.visible {
   transform: translateY(0);
 }
+
+/* safeareaview */
+
+.safeAreaView {
+  display: flex;
+  flex-direction: row;
+  padding-top: 60px; /* высота хедера */
+  padding-bottom: 60px; /* высота футера */
+  overflow-y: auto;
+}
+
+.left {
+  flex: 1;
+  background-color: red;
+}
+
+.mid {
+  flex: 2;
+  background-color: blue;
+}
+
+.right {
+  flex: 1;
+  background-color: green;
+}
+
+@media (max-width: 1200px) {
+  .right {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .left {
+    display: none;
+  }
+}
