@@ -5,9 +5,9 @@
 1. Разработка ведется в соответствующих ветках: frontend_development, backend_development;
 2. Пуш в мастер только по Pull Request после ревью;
 
-# Ссылка на Asana (доступ по запросу, i guess)
+# Kanban доска находится в Github Projects:
 
--   https://app.asana.com/0/1206494381696105/1206494302879286
+-   https://github.com/users/kaizxr/projects/1
 
 # Правила коммитов:
 
