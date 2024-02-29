@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the port your app runs on
-EXPOSE 3000
+EXPOSE 7293
 
 # Define the command to run your app
 CMD ["node", "hello_world.js"]

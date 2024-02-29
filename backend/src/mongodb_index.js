@@ -1,23 +1,49 @@
+const http = require('http');
 const { MongoClient } = require("mongodb");
 
-// Replace the uri string with your connection string.
-const uri = "mongodb://127.0.0.1:27017";
+// HTTP params init
+const hostname = '0.0.0.0';
+const port = 7293;
 
-const client = new MongoClient(uri);
+// MongoDB client init
+const mongodb_uri = "mongodb://127.0.0.1:27017";
+const client = new MongoClient(mongodb_uri);
 
 async function run() {
   try {
-    const database = client.db('mflix');
-    const movies = database.collection('movies');
+    const database = client.db('me_db');
+    const posts = database.collection('posts');
 
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { title: 'Back to the Future' };
-    const movie = await movies.findOne(query);
+    const postAnswerCursor = await posts.find();
+    const postAnswer = await postAnswerCursor.toArray();
 
-    console.log(movie);
+    const htmlContent = generateHTML(postAnswer);
+
+    const server = http.createServer((req, res) => {
+      res.statusCode = 200;
+      res.setHeader('Content-Type', 'text/html');
+      res.end(htmlContent);
+    });
+    
+    server.listen(port, hostname, () => {
+      console.log(`Server running at http://${hostname}:${port}/`);
+    });
+
   } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
   }
 }
+
+function generateHTML(data) {
+  let html = '<html><head><title>MongoDB Data</title></head><body>';
+  html += '<h1>Your MongoDB Data</h1>';
+  html += '<ul>';
+  data.forEach(item => {
+    html += `<li>${JSON.stringify(item)}</li>`;
+  });
+  html += '</ul></body></html>';
+  
+  return html;
+}
+
 run().catch(console.dir);
