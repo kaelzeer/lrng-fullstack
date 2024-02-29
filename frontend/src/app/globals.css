@@ -90,17 +90,17 @@ body {
 
 .left {
   flex: 1;
-  background-color: red;
+  background-color: rgb(199, 199, 199);
 }
 
 .mid {
   flex: 2;
-  background-color: blue;
+  background-color: rgb(199, 199, 199);
 }
 
 .right {
   flex: 1;
-  background-color: green;
+  background-color: rgb(199, 199, 199);
 }
 
 @media (max-width: 1200px) {
@@ -113,4 +113,35 @@ body {
   .left {
     display: none;
   }
+}
+
+/* Postblock */
+
+.postBlock {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.metadata {
+  margin-bottom: 10px;
+}
+
+.metadata span {
+  margin-right: 10px;
+}
+
+.header {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.content {
+  margin-bottom: 10px;
+}
+
+.statistics span {
+  margin-right: 15px;
 }
