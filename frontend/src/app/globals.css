@@ -1,33 +1,113 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Header */
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Высота хедера */
+  background-color: #d9f0ff; /* Цвет фона хедера */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000; /* Поверх других элементов на странице */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень для эффекта поднятия */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.logo-container{
+  margin-left: 100px;
+}
+
+.profile {
+  margin-right: 300px;
+}
+
+/* Footer */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%);
+}
+
+.footer.visible {
+  transform: translateY(0);
+}
+
+/* mainPageComponent */
+
+.mainPageComponent {
+  display: flex;
+  flex-direction: row;
+  padding-top: 60px; /* высота хедера */
+  padding-bottom: 60px; /* высота футера */
+  overflow-y: auto;
+}
+
+.mainLeft {
+  flex: 1;
+  background-color: rgb(199, 199, 199);
+}
+
+.mainMid {
+  flex: 2;
+  background-color: rgb(199, 199, 199);
+}
+
+.mainRight {
+  flex: 1;
+  background-color: rgb(199, 199, 199);
+}
+
+@media (max-width: 1200px) {
+  .mainRight {
+    display: none;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (max-width: 600px) {
+  .mainLeft {
+    display: none;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Postblock */
+
+.postBlock {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.metadata {
+  margin-bottom: 10px;
+}
+
+.metadata span {
+  margin-right: 10px;
+}
+
+.header {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.content {
+  margin-bottom: 10px;
+}
+
+.statistics span {
+  margin-right: 15px;
 }
