@@ -31,11 +31,11 @@ const postData = {
   views: 321,
 };
 
-const SafeAreaView: React.FC = () => {
+const MainPageComponent: React.FC = () => {
   return (
-    <div className="safeAreaView">
-      <div className={"left"}>Hello, World1</div>
-      <div className={"mid"}>
+    <div className="mainPageComponent">
+      <div className={"mainLeft"}>Hello, World1</div>
+      <div className={"mainMid"}>
         <PostBlock post={postData}/>
         <PostBlock post={postData}/>
         <PostBlock post={postData}/>
@@ -44,9 +44,9 @@ const SafeAreaView: React.FC = () => {
         <PostBlock post={postData}/>
         <PostBlock post={postData}/>
       </div>
-      <div className={"right"}>Hello, World3</div>
+      <div className={"mainRight"}>Hello, World3</div>
     </div>
   );
 };
 
-export default SafeAreaView;
+export default MainPageComponent;

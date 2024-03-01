@@ -1,12 +1,12 @@
-import Header from './header';
-import Footer from './footer';
-import SafeAreaView from './safeareaview';
+import Header from '@/components/header';
+import Footer from '@/components/mainPageComponent';
+import MainPageComponent from '@/components/mainPageComponent';
 
 export default function Home() {
   return (
     <div>
       <Header />
-      <SafeAreaView />
+      <MainPageComponent />
       <Footer/>
     </div>
   );
