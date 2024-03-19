@@ -1,28 +1,19 @@
 import React from 'react';
+import Link from 'next/link';
+import PostBlock from '@/components/postBlock';
 
-const PostBlock: React.FC<{ post: any }> = ({ post }) => {
-  return (
-    <div className={"postBlock"}>
-      <div className={"metadata"}>
-        {/* Метаданные: автор, время публикации*/}
-        <span className={"author"}> {post.author}</span>
-        <span className={"publicationDate"}> {post.publicationDate}</span>
-      </div>
-      {/* Пост */}
-      <h2 className={"blockHeader"}>{post.title}</h2>
-      <p className={"content"}>{post.content}</p>
-      {/* Блок со статистикой */}
-      <div className={"statistics"}>
-        <span className={"likes"}>Likes: {post.likes}</span>
-        <span className={"views"}>Views: {post.views}</span>
-        {/* Дополнительные действия */}
-        <button className={"actionButton"}>Share</button>
-      </div>
-    </div>
-  );
+const postData1 = {
+  id: 'abcd-efgh',
+  author: 'Author',
+  publicationDate: '29.02.2024',
+  title: 'Учебный проект по дисциплине Коллективная разработка',
+  content: 'Общие правила разработки:',
+  likes: 123,
+  views: 321,
 };
 
-const postData = {
+const postData2 = {
+  id: 'efgh-abcd',
   author: 'Author',
   publicationDate: '29.02.2024',
   title: 'Учебный проект по дисциплине Коллективная разработка',
@@ -36,13 +27,17 @@ const MainPageComponent: React.FC = () => {
     <div className="mainPageComponent">
       <div className={"mainLeft"}>Hello, World1</div>
       <div className={"mainMid"}>
-        <PostBlock post={postData}/>
-        <PostBlock post={postData}/>
-        <PostBlock post={postData}/>
-        <PostBlock post={postData}/>
-        <PostBlock post={postData}/>
-        <PostBlock post={postData}/>
-        <PostBlock post={postData}/>
+        <Link href={`/post/${postData1.id}`}>
+          <PostBlock post={postData1} />
+        </Link>
+        <Link href={`/post/${postData2.id}`}>
+          <PostBlock post={postData2} />
+        </Link>
+        <PostBlock post={postData1}/>
+        <PostBlock post={postData1}/>
+        <PostBlock post={postData1}/>
+        <PostBlock post={postData1}/>
+        <PostBlock post={postData1}/>
       </div>
       <div className={"mainRight"}>Hello, World3</div>
     </div>
