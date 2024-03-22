@@ -6,10 +6,10 @@ import axios from "axios";
 
 const MainPageComponent: React.FC = () => {
   const [data, setData] = useState([]);
-  
+
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios.get("/api");
+      const { data } = await axios.get("/api/posts");
       setData(data);
     };
     getData();
@@ -20,7 +20,7 @@ const MainPageComponent: React.FC = () => {
       <div className={"mainLeft"}>Hello, World1</div>
       <div className={"mainMid"}>
         {data.map(post => 
-        ( 
+        (
           <Link href={`/post/${post._id}`} key={post._id}>
             <PostBlock post={post} />
           </Link>

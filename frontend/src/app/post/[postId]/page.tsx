@@ -11,7 +11,7 @@ export default function PostDetails({ params }: { params: { postId: string } }) 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("/api");
+        const response = await axios.get("/api/posts");
         const postsData = response.data;
         const post = postsData.find((post: any) => post._id === params.postId);
         setPostData(post);
