@@ -1,13 +1,28 @@
+'use client'
+import React, { useEffect, useState } from "react";
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
 import PostBlock from '@/components/postBlock';
-import postsData from '@/data/postsData';
+import axios from "axios";
 
 export default function PostDetails({ params }: { params: { postId: string } }) {
+  const [postData, setPostData] = useState([]);
 
-  const post = postsData.find(post => post.id === params.postId);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await axios.get("/api");
+        const postsData = response.data;
+        const post = postsData.find((post: any) => post._id === params.postId);
+        setPostData(post);
+      } catch (error) {
+        console.error("Error getting data:", error);
+      }
+    };
+    getData();
+  }, [params.postId]);
 
-  if (!post) {
+  if (!postData) {
     return (
       <div>
         <Header />
@@ -27,7 +42,7 @@ export default function PostDetails({ params }: { params: { postId: string } }) 
       <div className={"mainPageComponent"}>
         <div className={"mainLeft"}></div>
         <div className={"mainMid"}>
-          <PostBlock post={post} />
+          <PostBlock post={postData} />
         </div>
         <div className={"mainRight"}></div>
       </div>
