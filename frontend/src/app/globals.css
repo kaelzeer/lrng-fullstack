@@ -1,3 +1,8 @@
+body{
+  background-color: rgb(199, 199, 199);
+}
+
+
 /* Header */
 
 .header {
@@ -56,17 +61,14 @@
 
 .mainLeft {
   flex: 1;
-  background-color: rgb(199, 199, 199);
 }
 
 .mainMid {
   flex: 2;
-  background-color: rgb(199, 199, 199);
 }
 
 .mainRight {
   flex: 1;
-  background-color: rgb(199, 199, 199);
 }
 
 @media (max-width: 1200px) {
@@ -86,28 +88,43 @@
 .postBlock {
   margin-bottom: 20px;
   padding: 20px;
-  border: 1px solid #ffffff;
+  border: 10px solid #ffffff;
   border-radius: 10px;
   background-color: #fff;
 }
 
-.metadata {
-  margin-bottom: 10px;
-}
-
-.metadata span {
-  margin-right: 10px;
-}
-
-.header {
+.blockHeader {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  margin-top: -10px;
 }
 
 .content {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.statistics span {
-  margin-right: 15px;
+.statistics a {
+  pointer-events: auto;
+}
+
+.statistics {
+  margin-bottom: -20px;
+}
+
+.linkStyle {
+  text-decoration: none;
+  color: inherit;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.icon:hover {
+  color: rgb(199, 199, 199);
+}
+
+.icon.liked {
+  color: red;
 }
