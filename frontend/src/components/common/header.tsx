@@ -10,8 +10,10 @@ const Header: React.FC = () => {
             </Link>
           </div>
           <div className="profile">
-            <Link href="/profile">
-              <div>Profile</div>
+            <Link href="/">
+              <svg width="48" height="48">
+                <circle cx="24" cy="24" r="20" fill="black" />
+              </svg>
             </Link>
           </div>
         </header>

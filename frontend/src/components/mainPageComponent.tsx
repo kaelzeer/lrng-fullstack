@@ -17,17 +17,17 @@ const MainPageComponent: React.FC = () => {
 
   return (
     <div className={"mainPageComponent"}>
-      <div className={"mainLeft"}>Hello, World1</div>
+      <div className={"mainLeft"}></div>
       <div className={"mainMid"}>
         {data.map(post => 
         (
-          <Link href={`/post/${post._id}`} key={post._id}>
+          <Link href={`/post/${post._id}`} key={post._id} className="linkStyle">
             <PostBlock post={post} />
           </Link>
         )) 
-        }
+        }        
       </div>
-      <div className={"mainRight"}>Hello, World3</div>
+      <div className={"mainRight"}></div>
     </div>
   );
 };
