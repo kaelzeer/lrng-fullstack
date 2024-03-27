@@ -25,11 +25,27 @@ class MongoDBHandler {
     }
   }
 
+  // will be deprecated in [1.1.0]
   async getAllPosts() {
     try {
       await this.connect();
       const database = this.client.db("me_db");
       const posts = database.collection("posts");
+
+      const postAnswerCursor = await posts.find();
+      const postAnswer = await postAnswerCursor.toArray();
+
+      return postAnswer;
+    } finally {
+      await this.close();
+    }
+  }
+
+  async getAllPostsV2() {
+    try {
+      await this.connect();
+      const database = this.client.db("me_db");
+      const posts = database.collection("posts_v2");
 
       const postAnswerCursor = await posts.find();
       const postAnswer = await postAnswerCursor.toArray();
