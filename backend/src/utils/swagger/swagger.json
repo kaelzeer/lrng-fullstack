@@ -8,7 +8,7 @@
   "paths": {
     "/posts": {
       "get": {
-        "summary": "Get all posts from the database",
+        "summary": "DEPRECATED in [1.1.0]: Get all posts from the database",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -31,6 +31,76 @@
           },
           "500": {
             "description": "Internal error. Error fetching posts"
+          }
+        }
+      }
+    },
+    "api/posts": {
+      "get": {
+        "summary": "Get all posts from the database with new fields",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "header": "The Evolution of Video Game Graphics",
+                    "image_1": "the-evolution-of-video-game-graphics-1",
+                    "text_1": "Over the years, video game graphics have evolved significantly, from simple pixelated sprites to lifelike 3D environments.",
+                    "image_2": "the-evolution-of-video-game-graphics-2",
+                    "text_2": "Advancements in technology have played a crucial role in pushing the boundaries of what is possible in video game graphics."
+                  },
+                  {
+                    "header": "The Impact of Esports on the Gaming Industry",
+                    "image_1": "the-impact-of-esports-on-the-gaming-industry-1",
+                    "text_1": "Esports has grown into a multi-billion dollar industry, attracting millions of viewers and players worldwide.",
+                    "image_2": "the-impact-of-esports-on-the-gaming-industry-2",
+                    "text_2": "Its influence extends beyond gaming, with professional esports teams, sponsorships, and tournaments becoming mainstream."
+                  }
+                ]
+              }
+            }
+          },
+          "500": {
+            "description": "Internal error. Error fetching posts"
+          }
+        }
+      }
+    },
+    "/api/image/{imageName}": {
+      "get": {
+        "summary": "Get posts related image by name",
+        "description": "Returns the image with the specified name",
+        "parameters": [
+          {
+            "name": "imageName",
+            "in": "path",
+            "description": "Name of the image to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "the-evolution-of-video-game-graphics-1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Image found and returned",
+            "content": {
+              "image/jpeg": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Image not found"
+          },
+          "500": {
+            "description": "Internal server error"
           }
         }
       }
