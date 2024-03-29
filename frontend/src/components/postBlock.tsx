@@ -14,8 +14,10 @@ const PostBlock: React.FC<{ post: any }> = ({ post }) => {
       const vertical = img.height > img.width;
       setImageOrientation(vertical ? 'postImageVertical' : 'postImage');
     }
-    checkImageOrientation(`/image/${post.image_1}.jpg`, setImageOrientation1);
-  }, [post.image1]);
+    if(post.image_1){
+      checkImageOrientation(`http://185.250.46.244:7293/api/image/${post.image_1}`, setImageOrientation1);
+    }
+  }, [post.image_1]);
 
   const [isLiked, setIsLiked] = useState(false);
   const toggleLike = () => {
@@ -27,15 +29,13 @@ const PostBlock: React.FC<{ post: any }> = ({ post }) => {
       <h2 className={"blockHeader"}> {post.header}</h2>
       <div className="postImageContainer">
         <img 
-          src={`/image/${post.image_1}.jpg`} 
+          src={`http://185.250.46.244:7293/api/image/${post.image_1}`} 
           alt="Post Image" 
           className={imageOrientation1} />
       </div>
       <p className={"content"}> {post.text_1}</p>
       <div className={"statistics"}>
-        <a className="icon" onClick={(e) => { e.preventDefault(); toggleLike(); }}>
-          <HeartIcon className={`icon ${isLiked ? 'liked' : ''}`} />
-        </a>
+        <HeartIcon className={`icon ${isLiked ? 'liked' : ''}`} onClick={(e) => { e.preventDefault(); toggleLike(); }}/>
         <EyeIcon className="icon" />
         <ShareIcon className="icon" />
       </div>
