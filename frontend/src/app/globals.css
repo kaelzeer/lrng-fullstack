@@ -128,3 +128,21 @@ body{
 .icon.liked {
   color: red;
 }
+/* Image */
+
+.postImageContainer {
+  position: relative;
+  object-fit: contain;
+}
+
+.postImage {
+  width: 100%;
+  height: auto;
+}
+
+.postImageVertical {
+  width: 50%;
+  height: 30%;
+  object-fit: fill;
+  transform: translate(50%, 0%);
+}

@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
-import PostBlock from '@/components/postBlock';
+import PostBlock from '@/components/onePostBlock';
 import axios from "axios";
 
 export default function PostDetails({ params }: { params: { postId: string } }) {
+
   const [postData, setPostData] = useState([]);
 
   useEffect(() => {
