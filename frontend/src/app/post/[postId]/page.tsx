@@ -2,27 +2,30 @@
 import React, { useEffect, useState } from "react";
 import Header from '@/components/common/header';
 import Footer from '@/components/common/footer';
-import PostBlock from '@/components/postBlock';
+import PostBlock from '@/components/onePostBlock';
 import axios from "axios";
+import postsData from '@/app/data/postsData'
 
 export default function PostDetails({ params }: { params: { postId: string } }) {
-  const [postData, setPostData] = useState([]);
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await axios.get("/api/posts");
-        const postsData = response.data;
-        const post = postsData.find((post: any) => post._id === params.postId);
-        setPostData(post);
-      } catch (error) {
-        console.error("Error getting data:", error);
-      }
-    };
-    getData();
-  }, [params.postId]);
+  const post = postsData.find(post => post._id === params.postId);
+  // const [postData, setPostData] = useState([]);
 
-  if (!postData) {
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const response = await axios.get("/api/posts");
+  //       const postsData = response.data;
+  //       const post = postsData.find((post: any) => post._id === params.postId);
+  //       setPostData(post);
+  //     } catch (error) {
+  //       console.error("Error getting data:", error);
+  //     }
+  //   };
+  //   getData();
+  // }, [params.postId]);
+
+  if (!post) {
     return (
       <div>
         <Header />
@@ -42,7 +45,7 @@ export default function PostDetails({ params }: { params: { postId: string } }) 
       <div className={"mainPageComponent"}>
         <div className={"mainLeft"}></div>
         <div className={"mainMid"}>
-          <PostBlock post={postData} />
+          <PostBlock post={post} />
         </div>
         <div className={"mainRight"}></div>
       </div>
