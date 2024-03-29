@@ -7,7 +7,7 @@
 
 # Kanban доска находится в Github Projects:
 
--   https://github.com/users/kaizxr/projects/1
+-   https://github.com/users/kaelzeer/projects/1
 
 # Правила коммитов:
 
