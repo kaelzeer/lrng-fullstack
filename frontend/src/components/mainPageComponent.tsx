@@ -6,17 +6,15 @@ import axios from "axios";
 import postsData from '@/app/data/postsData'
 
 const MainPageComponent: React.FC = () => {
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const { data } = await axios.get("/api/posts");
-  //     setData(data);
-  //   };
-  //   getData();
-  // }, []);
-
-  const data = postsData
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get("/api/posts");
+      setData(data);
+    };
+    getData();
+  }, []);
 
   return (
     <div className={"mainPageComponent"}>
