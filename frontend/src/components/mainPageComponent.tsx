@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Link from 'next/link';
 import PostBlock from '@/components/postBlock';
 import axios from "axios";
-import postsData from '@/app/data/postsData'
 
 const MainPageComponent: React.FC = () => {
   const [data, setData] = useState([]);
