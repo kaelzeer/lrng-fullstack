@@ -1,11 +1,12 @@
-version: "3"
 services:
   mongo:
     container_name: mongo
     hostname: mongo
     image: mongo
+    volumes:
+      - mongodb_mukhin_everstov:/data/db
     ports:
-      - "27017:7294"
+      - "27017:27017"
   server:
     build: backend/
     ports:
@@ -18,3 +19,5 @@ services:
       - "7292:7292"
     depends_on:
       - server
+volumes:
+  mongodb_mukhin_everstov:
