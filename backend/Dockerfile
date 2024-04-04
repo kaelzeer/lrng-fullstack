@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:14
+FROM node:20.11.1
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 7293
 
 # Define the command to run your app
-CMD ["node", "hello_world.js"]
+CMD ["node", "src/App.js"]

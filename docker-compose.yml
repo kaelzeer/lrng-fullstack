@@ -1,0 +1,23 @@
+services:
+  mongo:
+    container_name: mongo
+    hostname: mongo
+    image: mongo
+    volumes:
+      - mongodb_mukhin_everstov:/data/db
+    ports:
+      - "27017:27017"
+  server:
+    build: backend/
+    ports:
+      - "7293:7293"
+    links:
+      - mongo
+  client:
+    build: frontend/
+    ports: 
+      - "7292:7292"
+    depends_on:
+      - server
+volumes:
+  mongodb_mukhin_everstov:
