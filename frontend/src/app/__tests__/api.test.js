@@ -1,5 +1,4 @@
 import axios from "axios";
-import handler from "../api/posts/route";
 
 describe("GET: /api/posts", () => {
   it("Return 200 OK status", async () => {
