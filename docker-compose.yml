@@ -1,12 +1,16 @@
 services:
   mongo:
     container_name: mongo
+    restart: always
     hostname: mongo
     image: mongo
     volumes:
-      - mongodb_mukhin_everstov:/data/db
+      - mongodb_me:/data/db
     ports:
-      - "27017:27017"
+      - "7294:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 123ahhahah
+      MONGO_INITDB_ROOT_PASSWORD: 111qeqwe
   server:
     build: backend/
     ports:
@@ -20,4 +24,4 @@ services:
     depends_on:
       - server
 volumes:
-  mongodb_mukhin_everstov:
+  mongodb_me:
