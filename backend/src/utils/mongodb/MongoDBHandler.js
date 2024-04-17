@@ -19,6 +19,7 @@ class MongoDBHandler {
     try {
       await this.connect();
       console.log("Connected to MongoDB");
+      return 0;
     } catch (error) {
       console.error("Error connecting to MongoDB:", error);
       process.exit(1);
