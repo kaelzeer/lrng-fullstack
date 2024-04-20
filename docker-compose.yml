@@ -1,16 +1,16 @@
 services:
   mongo:
-    container_name: mongo
+    container_name: lrng-fullstack-mongo
     restart: always
-    hostname: mongo
+    hostname: lrng-fullstack-mongo
     image: mongo
     volumes:
       - mongodb_me:/data/db
     ports:
       - "7294:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: 123ahhahah
-      MONGO_INITDB_ROOT_PASSWORD: 111qeqwe
+      MONGO_INITDB_ROOT_USERNAME: ${username}
+      MONGO_INITDB_ROOT_PASSWORD: ${password}
   server:
     build: backend/
     ports:
